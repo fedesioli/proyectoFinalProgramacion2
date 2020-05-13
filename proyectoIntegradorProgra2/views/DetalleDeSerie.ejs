@@ -16,69 +16,7 @@
 
   </head>
   <body>
-    <header>
-      <nav class="uk-navbar-container uk-margin" uk-navbar>
-        <div class="uk-navbar-left">
-
-          <a class="uk-navbar-item uk-logo" href="/home"><img src="/images/LogoProyecto.png" alt=""></a>
-
-          <ul class="uk-navbar-nav esconder">
-            <li>
-              <a href="home/seriesFavoritas">
-              <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>
-                Favoritos
-              </a>
-            </li>
-            <li>
-              <a href="#">Generos</a>
-              <div class="uk-navbar-dropdown uk-navbar-dropdown-width-2">
-                <div class="uk-navbar-dropdown-grid uk-child-width-1-2" uk-grid>
-                  <div>
-                    <ul class="uk-nav uk-navbar-dropdown-nav listado-generos">
-                      <li><a href="#" class="listagenero">Item</a></li>
-                      <li><a href="#"class="listagenero">Item</a></li>
-                      <li><a href="#" class="listagenero">Item</a></li>
-                      <li><a href="#" class="listagenero">Item</a></li>
-                      <li class="uk-nav-divider"></li>
-                      <li><a href="#" class="listagenero">Item</a></li>
-                      <li><a href="#" class="listagenero">Item</a></li>
-                      <li><a href="#" class="listagenero">Item</a></li>
-                      <li><a href="#" class="listagenero">Item</a></li>
-                    </ul>
-                  </div>
-                  <div>
-                    <ul class="uk-nav uk-navbar-dropdown-nav listado-generos">
-                      <li><a href="#" class="listagenero">Item</a></li>
-                      <li><a href="#"class="listagenero">Item</a></li>
-                      <li><a href="#" class="listagenero">Item</a></li>
-                      <li><a href="#" class="listagenero">Item</a></li>
-                      <li class="uk-nav-divider"></li>
-                      <li><a href="#" class="listagenero">Item</a></li>
-                      <li><a href="#" class="listagenero">Item</a></li>
-                      <li><a href="#" class="listagenero">Item</a></li>
-                      <li><a href="#" class="listagenero">Item</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-
-          <div class="uk-navbar-item ocultar">
-            <div><a href="/home/BuscadorAvanzado">BUSCADOR AVANZADO</a></div>
-          </div>
-          <div class="buscador">
-          <div class="uk-navbar-item">
-            <button class="uk-button uk-button-default mostrar-buscador" type="button" name="boton-despliegue"><i class="fas fa-search"></i></button>
-            <form class="buscador" action="ResultadoDeBuscador" method="get">
-              <input class="uk-input uk-form-width-small" name="buscador" type="text" placeholder="Encontra la serie que buscas!">
-              <button class="uk-button uk-button-default"><i class="fas fa-search"></i></button>
-            </form>
-          </div>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <%-include("header")%>
     <main>
       <div class="infoPrincipal">
         <img class="poster" src="../img/poster-default.png" alt="">
