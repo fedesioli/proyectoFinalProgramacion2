@@ -6,6 +6,5 @@ router.get("/", controlador.home);
 router.get("/BuscadorAvanzado", controlador.buscadorAvanzado);
 router.get("/seriesFavoritas", controlador.favoritos);
 router.get("/detalle/:id", controlador.detalleSerie)
-router.get("/seriesPorGenero", controlador.porGenero);
 
 module.exports = router;

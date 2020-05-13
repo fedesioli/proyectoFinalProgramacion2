@@ -19,11 +19,10 @@ var controlador = {
     })
     .then(function(detalleserie) {
       res.render("DetalleDeSerie", {detalleserie:detalleserie})
-    }) 
-  },
-  porGenero: function(req,res){
-    res.render("SeriesPorGenero")
-  },
+    })
+
+  
+  }
 }
 
 module.exports = controlador;

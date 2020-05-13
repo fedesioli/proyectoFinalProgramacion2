@@ -13,7 +13,7 @@ window.onload = function() {
 
       for (var i = 0; i < listado.length; i++) {
         listado[i].innerHTML = generos[i].name;
-        listado[i].href = "/home/SeriesPorGenero?idGenero=" + generos[i].id;
+        listado[i].href = "SeriesPorGenero.html?idGenero=" + generos[i].id;
       }
     })
 
@@ -34,7 +34,7 @@ window.onload = function() {
         if (relacionadas[i].poster_path != null) {
           imagenes[i].src = "https://image.tmdb.org/t/p/original" + relacionadas[i].poster_path;
         }
-        hipervinculos[i].href = "/home/detalle?idSerie=" + relacionadas[i].id;
+        hipervinculos[i].href = "DetalleDeSerie.html?idSerie=" + relacionadas[i].id;
       }
     })
 
