@@ -11,7 +11,7 @@ window.onload = function() {
 
       for (var i = 0; i < listado.length; i++) {
         listado[i].innerHTML = generos[i].name;
-        listado[i].href = "/SeriesPorGenero?idGenero=" + generos[i].id;
+        listado[i].href = "/home/SeriesPorGenero?idGenero=" + generos[i].id;
       }
     })
 

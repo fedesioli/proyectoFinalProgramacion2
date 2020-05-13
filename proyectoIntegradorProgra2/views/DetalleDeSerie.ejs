@@ -24,7 +24,9 @@
           <h2 class="tituloPelicula"><%=detalleserie.name%></h2>
           <button type="button" name="button" class="favorito">AGREGAR FAVORTIO</button>
           <h4 class="datosPrincipales">Genres:</h4>
-          <p class="generos"><%=detalleserie.genres%></p>
+          <% for( i = 0; i < detalleserie.genres.length; i++){ %>
+            <p class="generos"><%=detalleserie.genres[i].name%></p>
+          <% } %>
           <h4 class="datosPrincipales lenguajeOriginal">Original Language: <%=detalleserie.original_language%></h4>
           <h4 class="datosPrincipales fechaEstreno">First Air Date: <%=detalleserie.first_air_date%></h4>
           <h4 class="datosPrincipales">Overview:</h4>
