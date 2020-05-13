@@ -5,6 +5,9 @@ var controlador = require("../controllers/home")
 router.get("/", controlador.home);
 router.get("/BuscadorAvanzado", controlador.buscadorAvanzado);
 router.get("/seriesFavoritas", controlador.favoritos);
-router.get("/detalle/:id", controlador.detalleSerie)
+router.get("/detalle", controlador.detalleSerie);
+router.get("/SeriesPorGenero", controlador.porGenero);
+router.get("/resultadosBuscadorAvanzado", controlador.resultadosBuscadorAvanzado)
+router.get("/ResultadoDeBuscador", controlador.buscador);
 
 module.exports = router;

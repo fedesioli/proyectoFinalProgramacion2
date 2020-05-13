@@ -11,6 +11,15 @@ var controlador = {
   },
   detalleSerie: function(req,res){
     res.render("DetalleDeSerie")
+  },
+  porGenero: function(req,res){
+    res.render("SeriesPorGenero")
+  },
+  resultadosBuscadorAvanzado: function(req,res){
+    res.render("ResultadosBuscadorAvanzado")
+  },
+  buscador: function(req,res){
+    res.render("ResultadoDeBuscador")
   }
 }
 
