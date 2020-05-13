@@ -1,5 +1,3 @@
-const fetch = require("node-fetch");
-
 var controlador = {
 
   home: function(req,res){
@@ -12,16 +10,7 @@ var controlador = {
     res.render("seriesFavoritas")
   },
   detalleSerie: function(req,res){
-   
-    fetch("https://api.themoviedb.org/3/tv/" + req.params.id + "?api_key=935b83cf932d87a1deec2a0108c3513e&language=en-US")
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(detalleserie) {
-      res.render("DetalleDeSerie", {detalleserie:detalleserie})
-    })
-
-  
+    res.render("DetalleDeSerie")
   }
 }
 
