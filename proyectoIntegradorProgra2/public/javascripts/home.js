@@ -33,7 +33,7 @@ window.onload = function() {
         } else {
           titulos[i].innerHTML += "<div class=''><h1>" + series[i].name + "</h1></div>"
         }
-        hipervinculos[i].href = "/detalle/" + series[i].id;
+        hipervinculos[i].href = "/home/detalle/" + series[i].id;
       }
     })
 
@@ -55,7 +55,7 @@ window.onload = function() {
         } else {
           titulos[i].innerHTML += "<div class='uk-position-center uk-panel'><h1>" + series[i].name + "</h1></div>";
         }
-        hipervinculos[i].href = "/detalle/" + series[i].id;
+        hipervinculos[i].href = "/home/detalle/" + series[i].id;
       }
     })
 
@@ -77,7 +77,7 @@ window.onload = function() {
         } else {
           titulos[i].innerHTML += "<div class='uk-position-center uk-panel'><h1>" + series[i].name + "</h1></div>";
         }
-        hipervinculos[i].href = "/detalle/" + series[i].id;
+        hipervinculos[i].href = "/home/detalle/" + series[i].id;
       }
     })
 
