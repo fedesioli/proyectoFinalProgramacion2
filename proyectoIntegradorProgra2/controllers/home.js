@@ -20,6 +20,9 @@ var controlador = {
   },
   buscador: function(req,res){
     res.render("ResultadoDeBuscador")
+  },
+  registrarse: function(req,res) {
+    res.render("registrarse")
   }
 }
 

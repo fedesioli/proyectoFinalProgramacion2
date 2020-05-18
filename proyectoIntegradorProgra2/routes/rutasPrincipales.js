@@ -9,5 +9,6 @@ router.get("/detalle", controlador.detalleSerie);
 router.get("/SeriesPorGenero", controlador.porGenero);
 router.get("/resultadosBuscadorAvanzado", controlador.resultadosBuscadorAvanzado)
 router.get("/ResultadoDeBuscador", controlador.buscador);
+router.get("/registrarse", controlador.registrarse);
 
 module.exports = router;
