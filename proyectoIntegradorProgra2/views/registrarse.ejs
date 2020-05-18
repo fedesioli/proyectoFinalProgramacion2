@@ -17,6 +17,21 @@
 </head>
 <body>
     <%-include("header")%>
+
+    <main>
+        <form action="">
+            <label for="">¿Cuál va a ser tu nombre de usuario?</label>
+            <input type="text" name="nombredeusuario" value="" placeholder="Nombre de Usuario">
+            <label for="">¿Como es tu e-mail?</label>
+            <input type="mail" name="mailusuario" value="" placeholder="Mail">
+            <label for="">¿Cual va a ser tu contraseña?</label>
+            <input type="password" name="contraseña" placeholder="Contraseña">
+            <label for="">¿Que día naciste?</label>
+            <input type="date" name="fechaDeNacimiento" value="">
+            <button type="submit" name="button">Registrarse!</button>
+        </form>
+
+    </main>
     <%-include("footer")%>
 </body>
 </html>
