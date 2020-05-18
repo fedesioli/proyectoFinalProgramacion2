@@ -10,5 +10,6 @@ router.get("/SeriesPorGenero", controlador.porGenero);
 router.get("/resultadosBuscadorAvanzado", controlador.resultadosBuscadorAvanzado)
 router.get("/ResultadoDeBuscador", controlador.buscador);
 router.get("/registrarse", controlador.registrarse);
+router.post("/registrarse", controlador.crearUsuario);
 
 module.exports = router;

@@ -1,3 +1,6 @@
+let db = require("../database/models/index");
+let op = db.Sequelize.Op;
+
 var controlador = {
 
   home: function(req,res){
@@ -23,6 +26,17 @@ var controlador = {
   },
   registrarse: function(req,res) {
     res.render("registrarse")
+  },
+  crearUsuario: function(req,res){
+    let usuario = {
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+      birth_date: req.body.birth_date,
+      
+    }
+    db.users.create(usuario)
+      res.redirect("/home")
   }
 }
 
