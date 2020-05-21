@@ -102,11 +102,11 @@
   }
 
 /* series relacionadas */
-
-  main button{
-
+  
+  div.boton-relacionadas{
+    margin-left: 500px;
   }
-
+  
   div.relacionadas{
     display: none;
   }

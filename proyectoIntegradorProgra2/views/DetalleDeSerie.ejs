@@ -34,7 +34,29 @@
       <div class="trailer">
 
       </div>
-      <button type="button" class="series-relacionadas" name="series-relacionadas">Ver series relacionadas</button>
+
+      <div class="infoPrincipal">
+        <div class="tituloDatos">
+          <ul><h4>Reviews previas</h4><li>reviews 1</li></ul>
+          <form action="/home/detalle" method="POST">
+            <label for="">Deja tu propia review!</label>
+            <br>
+            <input type="text" name="texto" placeholder="Contanos que te parecio la serie!">
+            <br>
+            <br>
+            <label for="">Necesitamos tus datos de usuario:</label>
+            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="password" placeholder="Password">
+            <br>
+            <input type="submit" value="Enviar">
+          </form>
+        </div>
+      </div>
+      
+      <div class="boton-relacionadas">
+        <button type="button" class="series-relacionadas" name="series-relacionadas">Ver series relacionadas</button>
+      </div>
+      
       <div class="relacionadas">
         <h3>Relacionadas</h3>
         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="sets: true">
