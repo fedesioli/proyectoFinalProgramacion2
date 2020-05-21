@@ -1,5 +1,6 @@
 let db = require("../database/models/index");
 let op = db.Sequelize.Op;
+let bcrypt = require("../node_modules/bcrypt/bcrypt")
 
 var controlador = {
 
@@ -28,10 +29,12 @@ var controlador = {
     res.render("registrarse")
   },
   crearUsuario: function(req,res){
+    let passEncricptada = bcrypt.hashSync(req.body.password, 10);
+
     let usuario = {
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password,
+      password: passEncricptada,
       birth_date: req.body.birth_date,      
     }
     db.users.create(usuario)
@@ -39,4 +42,42 @@ var controlador = {
   }
 }
 
+let moduloLogin = {
+  chequearUsuario: function (email) {
+      return db.usuario.findOne({
+          where: {
+              email: req.body.email
+          }
+      })
+      .then(function(usuario) {
+          return usuario != null;
+      })
+  },
+
+  buscarPorEmail: function (email){
+      return db.usuario.findOne({
+          where: {
+              email: req.body.email
+          }
+      })
+      .then(resultado=> {
+          return resultado
+      })
+  },
+
+  validar: function (email, pass) {
+      return db.usuario.findOne({
+          where:{
+              email: req.body.email,
+              password: req.body.password
+          },
+      })
+      .then(results=>{
+          return results;
+      })
+  }
+}
+
+
+module.exports = moduloLogin;
 module.exports = controlador;
