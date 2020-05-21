@@ -101,6 +101,13 @@
     margin-left: 2%;
   }
 
+  div.uk-comment{
+    margin-left: 20px;
+  }
+  
+  div.new-review{
+    margin-left: 20px;
+  }
 /* series relacionadas */
   
   div.boton-relacionadas{

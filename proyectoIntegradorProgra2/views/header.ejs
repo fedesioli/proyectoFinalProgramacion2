@@ -1,5 +1,5 @@
 <header>
-    <nav class="uk-navbar-container uk-margin" uk-navbar>
+    <nav class="uk-navbar-container uk-margin " uk-sticky uk-navbar>
       <div class="uk-navbar-left">
 
         <a class="uk-navbar-item uk-logo" href="/home"><img src="/images/LogoProyecto.png" alt=""></a>
@@ -47,18 +47,15 @@
         </ul>
 
         <div class="uk-navbar-item ocultar">
-          <div><a href="/home/BuscadorAvanzado">Buscador avanzado</a></div>
-        </div>
-        <div class="uk-navbar-item ocultar">
-          <div><a href="/home/registrarse">Registrate</a></div>
+          <div><a href="/home/BuscadorAvanzado">BUSCADOR AVANZADO</a></div>
         </div>
         <div class="buscador">
-        <div class="uk-navbar-item">
-          <button class="uk-button uk-button-default mostrar-buscador" type="button" name="boton-despliegue"><i class="fas fa-search"></i></button>
+        <div class="uk-navbar-item">         
           <form class="buscador" action="/home/ResultadoDeBuscador" method="get">
             <input class="uk-input uk-form-width-small" name="buscador" type="text" placeholder="Encontra la serie que buscas!">
             <button class="uk-button uk-button-default"><i class="fas fa-search"></i></button>
           </form>
+          <a href="/home/registrarse" uk-icon="icon: user"></a>
         </div>
         </div>
       </div>
