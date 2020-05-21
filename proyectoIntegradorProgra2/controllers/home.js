@@ -39,45 +39,18 @@ var controlador = {
     }
     db.users.create(usuario)
       res.redirect("/home")
-  }
-}
-
-let moduloLogin = {
-  chequearUsuario: function (email) {
-      return db.usuario.findOne({
-          where: {
-              email: req.body.email
-          }
-      })
-      .then(function(usuario) {
-          return usuario != null;
-      })
   },
-
-  buscarPorEmail: function (email){
-      return db.usuario.findOne({
-          where: {
-              email: req.body.email
-          }
-      })
-      .then(resultado=> {
-          return resultado
-      })
-  },
-
-  validar: function (email, pass) {
-      return db.usuario.findOne({
-          where:{
-              email: req.body.email,
-              password: req.body.password
-          },
-      })
-      .then(results=>{
-          return results;
-      })
+  nuevaReview: function(req,res){
+    let idSerie = req.params.id
+    let review = {
+      id_serie: idSerie,
+      puntaje: req.body.puntaje,
+      texto: req.body.texto,
+    }
+    db.reviews.create(review)
+    res.redirect("/home")
   }
 }
 
 
-module.exports = moduloLogin;
 module.exports = controlador;
