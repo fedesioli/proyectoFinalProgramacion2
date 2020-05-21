@@ -25,6 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
   }
 
-  const usuarios = sequelize.define("usuarios", cols, config);
-  return usuarios
+  const users = sequelize.define("users", cols, config);
+  return users
 }

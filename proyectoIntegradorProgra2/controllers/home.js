@@ -32,8 +32,7 @@ var controlador = {
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
-      birth_date: req.body.birth_date,
-      
+      birth_date: req.body.birth_date,      
     }
     db.users.create(usuario)
       res.redirect("/home")
