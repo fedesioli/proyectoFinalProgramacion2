@@ -37,41 +37,27 @@
 
       <div class="infoPrincipal">
         <div class="tituloDatos">
-          <article class="uk-comment uk-comment-primary">
-            <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
+          <% for(i = 0; i < reviews.length; i++){ %>
+            <article class="uk-comment uk-comment-primary">
+              <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
                 <div class="uk-width-auto">
-                    <img class="uk-comment-avatar" src="images/user-default.png" width="80" height="80" alt="">
+                  <img class="uk-comment-avatar" src="images/user-default.png" width="80" height="80" alt="">
                 </div>
                 <div class="uk-width-expand">
-                    <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">John-Doe</a></h4>
-                    <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-                        <li><a href="#">Hace dos dias</a></li>
-                    </ul>
-                </div>
-            </header>
-            <div class="uk-comment-body">
-                <p>Me encanto la serie!</p>
-            </div>
-        </article>
-        <article class="uk-comment uk-comment-primary">
-          <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
-              <div class="uk-width-auto">
-                  <img class="uk-comment-avatar" src="images/user-default.png" width="80" height="80" alt="">
-              </div>
-              <div class="uk-width-expand">
-                  <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">Mery-Doe</a></h4>
+                  <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">Usuario</a></h4>
                   <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-                      <li><a href="#">Hace tres dias</a></li>
+                    <li><%=reviews.puntaje %></li>
                   </ul>
+                </div>
+              </header>
+              <div class="uk-comment-body">
+                <p><%=reviews.texto %></p>
               </div>
-          </header>
-          <div class="uk-comment-body">
-              <p>Me aburrio mucho....</p>
-          </div>
-      </article>
-        <br>
-        <br>
-        <div class="new-review">
+            </article>
+          <% } %>
+            <br>
+            <br>
+            <div class="new-review">
           <form action="/home/detalle" method="POST">
             <label for="">Deja tu propia review!</label>
             <br>

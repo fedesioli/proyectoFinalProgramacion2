@@ -14,7 +14,12 @@ var controlador = {
     res.render("seriesFavoritas")
   },
   detalleSerie: function(req,res){
-    res.render("DetalleDeSerie")
+    db.reviews.findAll()
+    .then(function(reviews){
+      console.log(reviews);
+      
+    res.render("DetalleDeSerie", {reviews: reviews})
+    })
   },
   porGenero: function(req,res){
     res.render("SeriesPorGenero")
