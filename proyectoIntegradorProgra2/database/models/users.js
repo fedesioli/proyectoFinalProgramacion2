@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
 
   users.associate = function(models){
     users.hasMany(models.reviews, {
-        as: "usuario",
+        as: "users",
         Foreignkey: "id_user"
     })}
 }

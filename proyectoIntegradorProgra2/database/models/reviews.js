@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     return reviews
     reviews.associate = function(models){
       reviews.belongsTo(models.users, {
-        as: "usuario",
+        as: "users",
        Foreignkey: "id_user"
        })
     }

@@ -1,6 +1,7 @@
 let db = require("../database/models/index");
 let op = db.Sequelize.Op;
 let bcrypt = require("../node_modules/bcrypt/bcrypt")
+let moduloLogin = require("../controllers/login")
 
 var controlador = {
 
@@ -47,8 +48,11 @@ var controlador = {
   },
   nuevaReview: function(req,res){
     let idSerie = req.params.id
+    let usuarioId = moduloLogin.buscarPorEmail(req.body.email).id_user
+
     let review = {
       id_serie: idSerie,
+      id_user: usuarioId,
       puntaje: req.body.puntaje,
       texto: req.body.texto,
     }

@@ -36,19 +36,6 @@ var moduloLogin = {
           return results;
       })
   },
-  nuevaReview: function(req,res){
-    let idSerie = req.params.id
-    let usuarioId = this.buscarPorEmail.id_user
-
-    let review = {
-      id_serie: idSerie,
-      id_user: usuarioId,
-      puntaje: req.body.puntaje,
-      texto: req.body.texto,
-    }
-    db.reviews.create(review)
-    res.redirect("/home")
-  }
 }
 
 
