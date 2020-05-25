@@ -1,11 +1,7 @@
 let db = require("../database/models/index");
 let op = db.Sequelize.Op;
-<<<<<<< Updated upstream
-let bcrypt = require("../node_modules/bcrypt/bcrypt")
-let moduloLogin = require("../controllers/login")
-=======
 let bcryptjs = require("../node_modules/bcryptjs")
->>>>>>> Stashed changes
+let moduloLogin = require("../modulos/login")
 
 var controlador = {
 
@@ -21,8 +17,7 @@ var controlador = {
   detalleSerie: function(req,res){
     db.reviews.findAll()
     .then(function(reviews){
-      console.log(reviews);
-      
+           
     res.render("DetalleDeSerie", {reviews: reviews})
     })
   },
@@ -51,8 +46,11 @@ var controlador = {
       res.redirect("/home")
   },
   nuevaReview: function(req,res){
+    
     let idSerie = req.params.id
-    let usuarioId = moduloLogin.buscarPorEmail(req.body.email).id_user
+    let emailUsuario = req.body.email
+
+    usuarioId = moduloLogin.validar(emailUsuario).id_user
 
     let review = {
       id_serie: idSerie,

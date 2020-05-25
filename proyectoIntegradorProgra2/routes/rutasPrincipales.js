@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var controlador = require("../controllers/home")
-var controlador2 = require("../controllers/login")
 
 router.get("/", controlador.home);
 router.get("/BuscadorAvanzado", controlador.buscadorAvanzado);

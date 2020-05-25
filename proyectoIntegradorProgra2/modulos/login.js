@@ -1,10 +1,10 @@
 let db = require("../database/models/index");
 let op = db.Sequelize.Op;
-let bcryptjs = require("../node_modules/bcryptjs")
+let bcryptjs = require("bcryptjs")
 
 var moduloLogin = {
   chequearUsuario: function (email) {
-      return db.usuario.findOne({
+      return db.users.findOne({
           where: {
               email: req.body.email
           }
@@ -14,10 +14,10 @@ var moduloLogin = {
       })
   },
 
-  buscarPorEmail: function (email){
-      return db.usuario.findOne({
+  buscarPorEmail: function (emailUsuario){
+      return db.users.findOne({
           where: {
-              email: req.body.email
+              email: emailUsuario,
           }
       })
       .then(resultado=> {
@@ -26,7 +26,7 @@ var moduloLogin = {
   },
 
   validar: function (email, pass) {
-      return db.usuario.findOne({
+      return db.users.findOne({
           where:{
               email: req.body.email,
               password: req.body.password
