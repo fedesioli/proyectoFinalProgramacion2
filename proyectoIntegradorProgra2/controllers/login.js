@@ -1,6 +1,6 @@
 let db = require("../database/models/index");
 let op = db.Sequelize.Op;
-let bcrypt = require("../node_modules/bcrypt/bcrypt")
+let bcryptjs = require("../node_modules/bcryptjs")
 
 var moduloLogin = {
   chequearUsuario: function (email) {
