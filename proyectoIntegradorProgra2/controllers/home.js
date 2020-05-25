@@ -44,11 +44,13 @@ var controlador = {
   },
   nuevaReview: function(req,res){
     
-    let idSerie = req.params.id
-    let emailUsuario = req.body.email
+    let idSerie = req.params.id;
+    let email = req.body.email;
+    let password = req.body.password;
 
-    usuarioId = moduloLogin.validar(emailUsuario).id_user
-
+    usuarioId = moduloLogin.validar(email).id_user
+    console.log(usuarioId);
+    
     let review = {
       id_serie: idSerie,
       id_user: usuarioId,

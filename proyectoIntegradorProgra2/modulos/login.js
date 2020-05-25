@@ -20,19 +20,20 @@ var moduloLogin = {
           }
       })
       .then(resultado=> {
-          return resultado
+          return usuario;
       })
   },
 
-  validar: function (email, pass) {
+  validar: function (email, password) {
       return db.users.findOne({
           where:{
-              email: req.body.email,
-              password: req.body.password
+              email: email,
+              password: password,
           },
       })
       .then(results=>{
-          return results;
+          let resultado = results.id_user
+          return resultado;
       })
   },
 }
