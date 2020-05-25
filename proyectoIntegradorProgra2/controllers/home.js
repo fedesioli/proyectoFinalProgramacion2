@@ -1,13 +1,6 @@
 let db = require("../database/models/index");
 let op = db.Sequelize.Op;
-<<<<<<< Updated upstream
-let bcryptjs = require("../node_modules/bcryptjs")
 let moduloLogin = require("../modulos/login")
-=======
-let moduloLogin = require("../controllers/login")
-let bcryptjs = require("../node_modules/bcryptjs")
-
->>>>>>> Stashed changes
 
 var controlador = {
 
@@ -40,12 +33,10 @@ var controlador = {
     res.render("registrarse")
   },
   crearUsuario: function(req,res){
-    let passEncricptada = bcryptjs.hashSync(req.body.password, 10);
-
-    let usuario = {
+      let usuario = {
       username: req.body.username,
       email: req.body.email,
-      password: passEncricptada,
+      password: req.body.password,
       birth_date: req.body.birth_date,      
     }
     db.users.create(usuario)
