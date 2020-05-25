@@ -1,7 +1,13 @@
 let db = require("../database/models/index");
 let op = db.Sequelize.Op;
+<<<<<<< Updated upstream
 let bcryptjs = require("../node_modules/bcryptjs")
 let moduloLogin = require("../modulos/login")
+=======
+let moduloLogin = require("../controllers/login")
+let bcryptjs = require("../node_modules/bcryptjs")
+
+>>>>>>> Stashed changes
 
 var controlador = {
 
