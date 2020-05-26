@@ -37,7 +37,7 @@
 
       <div class="infoPrincipal">
         <div class="tituloDatos">
-          <% for(i = 0; i < reviews.length; i++){ %>
+          <% for(i = 0; i < 4; i++){ %>
             <article class="uk-comment uk-comment-primary">
               <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
                 <div class="uk-width-auto">
@@ -46,12 +46,12 @@
                 <div class="uk-width-expand">
                   <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">Usuario</a></h4>
                   <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-                    <li><%=reviews.puntaje %></li>
+                    <li><%=reviews[i].puntaje %></li>
                   </ul>
                 </div>
               </header>
               <div class="uk-comment-body">
-                <p><%=reviews.texto %></p>
+                <p><%=reviews[i].texto %></p>
               </div>
             </article>
           <% } %>

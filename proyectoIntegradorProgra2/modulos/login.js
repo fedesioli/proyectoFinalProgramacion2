@@ -1,4 +1,4 @@
-let db = require("../database/models/index");
+let db = require("../database/models");
 let op = db.Sequelize.Op;
 
 var moduloLogin = {
@@ -13,10 +13,10 @@ var moduloLogin = {
       })
   },
 
-  buscarPorEmail: function (emailUsuario){
+  buscarPorEmail: function (emai){
       return db.users.findOne({
           where: {
-              email: emailUsuario,
+              email: req.body.email,
           }
       })
       .then(resultado=> {
@@ -24,16 +24,15 @@ var moduloLogin = {
       })
   },
 
-  validar: function (email, password) {
+  validar: function (email, pass) {
       return db.users.findOne({
           where:{
               email: email,
-              password: password,
+              password: pass,
           },
       })
       .then(results=>{
-          let resultado = results.id_user
-          return resultado;
+            return results
       })
   },
 }

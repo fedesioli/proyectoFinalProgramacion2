@@ -1,6 +1,7 @@
-let db = require("../database/models/index");
+let db = require("../database/models");
 let op = db.Sequelize.Op;
-let moduloLogin = require("../modulos/login")
+let moduloLogin = require("../modulos/login");
+
 
 var controlador = {
 
@@ -16,7 +17,6 @@ var controlador = {
   detalleSerie: function(req,res){
     db.reviews.findAll()
     .then(function(reviews){
-           
     res.render("DetalleDeSerie", {reviews: reviews})
     })
   },
@@ -43,22 +43,22 @@ var controlador = {
       res.redirect("/home")
   },
   nuevaReview: function(req,res){
-    
-    let idSerie = req.params.id;
-    let email = req.body.email;
-    let password = req.body.password;
-
-    usuarioId = moduloLogin.validar(email).id_user
-    console.log(usuarioId);
-    
-    let review = {
-      id_serie: idSerie,
-      id_user: usuarioId,
-      puntaje: req.body.puntaje,
-      texto: req.body.texto,
-    }
-    db.reviews.create(review)
-    res.redirect("/home")
+    moduloLogin.validar(req.body.email, req.body.password)
+    .then(results=> {
+        let review = {
+          id_serie: req.params.id,
+          id_user: results.id_user,
+          puntaje: req.body.puntaje,
+          texto: req.body.texto,
+        }
+        db.reviews.create(review)               
+      })
+      .then(function(index){
+        return res.redirect("/home/detalle?id=" + req.params.id)
+      })
+      .catch(function(error){
+        return error
+      })
   }
 }
 

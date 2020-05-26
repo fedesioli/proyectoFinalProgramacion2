@@ -1,4 +1,4 @@
-let db = require("../database/models/index");
+let db = require("../database/models");
 let op = db.Sequelize.Op;
 let controlador = {
 
