@@ -13,7 +13,7 @@
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
-
+   
   </head>
   <body>
     <%-include("header")%>
@@ -37,7 +37,7 @@
 
       <div class="infoPrincipal">
         <div class="tituloDatos">
-          <% for(i = 0; i < 4; i++){ %>
+          <% for(i = 0; i < reviews.length; i++){ %>
             <article class="uk-comment uk-comment-primary">
               <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
                 <div class="uk-width-auto">
@@ -59,6 +59,7 @@
             <br>
             <div class="new-review">
           <form action="/home/detalle" method="POST">
+            <input type="hidden" name="id_serie" value="<%=id_serie%>">
             <label for="">Deja tu propia review!</label>
             <br>
             <input type="text" name="texto" placeholder="Contanos que te parecio la serie!">
