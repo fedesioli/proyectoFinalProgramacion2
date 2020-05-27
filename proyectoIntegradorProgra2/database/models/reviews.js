@@ -17,6 +17,12 @@ module.exports = (sequelize, DataTypes) => {
       },
       texto:{
         type: DataTypes.STRING
+      },
+      created_at:{
+        type: DataTypes.DATE
+      },
+      updated_at:{
+        type: DataTypes.DATE
       }
   
     }
@@ -26,12 +32,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   
     const reviews = sequelize.define("reviews", cols, config);
-    return reviews
     reviews.associate = function(models){
       reviews.belongsTo(models.users, {
-        as: "users",
-       Foreignkey: "id_user"
+        as: "user",
+       foreignKey: "id_user"
        })
     }
+    return reviews
     
   }

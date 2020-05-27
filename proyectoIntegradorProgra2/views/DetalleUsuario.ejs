@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/BuscadorAvanzado.css">
+    <script src="/javascripts/buscadorAvanzado.js" charset="utf-8"></script>
+    <script src="https://kit.fontawesome.com/4cbe2a5007.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+
+  </head>
+  <body>
+    <%-include("header")%>
+    <main>
+      <h1><%= resultado.username%></h1>
+      <div><%= resultado.email%></div>
+      <div><%= resultado.birth_date%></div>
+      <h2>Reseñas de <%= resultado.username%></h2>
+        <ul>
+            <% for(i = 0; i < resultado.reviews.length; i++){ %>
+                <li><%=resultado.reviews[i].texto%></li>
+                <%}%>
+        </ul>
+    </main>
+    <%-include("footer")%>
+  </body>
+</html>

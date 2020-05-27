@@ -1,4 +1,4 @@
-let db = require("../database/models");
+let db = require("../database/models/index");
 let op = db.Sequelize.Op;
 let moduloLogin = require("../modulos/login");
 
@@ -15,9 +15,18 @@ var controlador = {
     res.render("seriesFavoritas")
   },
   detalleSerie: function(req,res){
-    db.reviews.findAll()
+    var id_serie = req.query.id
+    db.reviews.findAll({
+      where:{
+          id_serie: id_serie,
+      },
+      include : [
+        {association: "user"}
+    ]
+    })
     .then(function(reviews){
-    res.render("DetalleDeSerie", {reviews: reviews})
+      var id_serie = req.query.id
+    res.render("DetalleDeSerie", {reviews: reviews, id_serie: id_serie})
     })
   },
   porGenero: function(req,res){
@@ -44,21 +53,29 @@ var controlador = {
   },
   nuevaReview: function(req,res){
     moduloLogin.validar(req.body.email, req.body.password)
-    .then(results=> {
+    .then(resultado=> {
+      console.log(resultado)
+
+      if(resultado != null){
+       
         let review = {
-          id_serie: req.params.id,
-          id_user: results.id_user,
+          id_serie: req.body.id_serie,
+          id_user: resultado.id_user,
           puntaje: req.body.puntaje,
           texto: req.body.texto,
+          created_at: db.sequelize.literal("CURRENT_DATE"),
+          updated_at: db.sequelize.literal("CURRENT_DATE"),
         }
-        db.reviews.create(review)               
+        console.log(review)   
+        db.reviews.create(review)
+        .then(function(){
+        return res.redirect("/home")
+        })               
+      } else{
+        return res.send("error")
+      }
       })
-      .then(function(index){
-        return res.redirect("/home/detalle?id=" + req.params.id)
-      })
-      .catch(function(error){
-        return error
-      })
+      
   }
 }
 

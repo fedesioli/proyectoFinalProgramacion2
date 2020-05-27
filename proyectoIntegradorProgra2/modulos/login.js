@@ -1,11 +1,11 @@
-let db = require("../database/models");
+let db = require("../database/models/index");
 let op = db.Sequelize.Op;
 
 var moduloLogin = {
   chequearUsuario: function (email) {
       return db.users.findOne({
           where: {
-              email: req.body.email
+              email: email
           }
       })
       .then(function(usuario) {
@@ -13,22 +13,22 @@ var moduloLogin = {
       })
   },
 
-  buscarPorEmail: function (emai){
+  buscarPorEmail: function (email){
       return db.users.findOne({
           where: {
-              email: req.body.email,
+              email: email,
           }
       })
       .then(resultado=> {
-          return usuario;
+          return resultado;
       })
   },
 
-  validar: function (email, pass) {
+  validar: function (email, password) {
       return db.users.findOne({
           where:{
               email: email,
-              password: pass,
+              password: password,
           },
       })
       .then(results=>{

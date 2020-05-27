@@ -18,7 +18,13 @@
   <body>
     <%-include("header")%>
     <main>
-     <p><%= resultado %></p>
+      <h1>Los usuarios encontrados son:</h1>
+      <ul>
+      <% for(i = 0; i < resultado.length; i++){ %>
+        <li><a href="/home/detalleUsuario?user=<%=resultado[i].id_user%>"><%= resultado[i].username%></a> - <%= resultado[i].email %></li>
+        <%}%>
+    </ul>
+    
     </main>
     <%-include("footer")%>
   </body>

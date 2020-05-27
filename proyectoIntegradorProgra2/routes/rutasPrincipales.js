@@ -14,7 +14,15 @@ router.get("/ResultadoDeBuscador", controlador.buscador);
 router.get("/registrarse", controlador.registrarse);
 router.post("/registrarse", controlador.crearUsuario);
 
-router.get("/BuscadorDeUsuarios", controladorUsuarios.buscarUsuario);
+// Controlador de usuarios
 
+router.get("/BuscadorDeUsuarios", controladorUsuarios.buscarUsuario);
+router.get("/ResultadoDeUsuarios", controladorUsuarios.ResultadosBuscadorUsuarios);
+router.get("/DetalleUsuario", controladorUsuarios.DetalleUsuario);
+router.get("/login", controladorUsuarios.formularioLogin);
+router.post("/login", controladorUsuarios.login);
+router.get("/myReviews", controladorUsuarios.myReviews);
+router.get("/editReview", controladorUsuarios.editReviewsForm);
+router.post("/editReview", controladorUsuarios.editReviews);
 
 module.exports = router;

@@ -52,6 +52,13 @@
         <div class="uk-navbar-item ocultar">
           <div><a href="/home/BuscadorDeUsuarios">BUSCADOR DE USUARIOS</a></div>
         </div>
+        <div class="uk-navbar-item ocultar">
+         <% if(usuarioLogeado){ %>
+          <div><a href="/home/myReviews"><%=usuarioLogeado%></a></div>          
+        <% } else{ %> 
+          <div><a href="/home/login">LOGIN</a></div> 
+        <% } %>
+        </div>
         <div class="buscador">
         <div class="uk-navbar-item">         
           <form class="buscador" action="/home/ResultadoDeBuscador" method="get">
