@@ -18,13 +18,15 @@
   <body>
     <%-include("header")%>
     <main>
-      <h1>Los usuarios encontrados son:</h1>
-      <ul>
-      <% for(i = 0; i < resultado.length; i++){ %>
-        <li><a href="/home/detalleUsuario?user=<%=resultado[i].id_user%>"><%= resultado[i].username%></a> - <%= resultado[i].email %></li>
-        <%}%>
-    </ul>
-    
+      <h1><%= resultado.username%></h1>
+      <div><%= resultado.email%></div>
+      <div><%= resultado.birth_date%></div>
+      <h2>Reseñas de <%= resultado.username%></h2>
+        <ul>
+            <% for(i = 0; i < resultado.length; i++){ %>
+                <li></li>
+                <%}%>
+        </ul>
     </main>
     <%-include("footer")%>
   </body>

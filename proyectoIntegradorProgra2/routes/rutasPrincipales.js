@@ -14,7 +14,10 @@ router.get("/ResultadoDeBuscador", controlador.buscador);
 router.get("/registrarse", controlador.registrarse);
 router.post("/registrarse", controlador.crearUsuario);
 
-router.get("/BuscadorDeUsuarios", controladorUsuarios.buscarUsuario);
+// Controlador de usuarios
 
+router.get("/BuscadorDeUsuarios", controladorUsuarios.buscarUsuario);
+router.get("/ResultadoDeUsuarios", controladorUsuarios.ResultadosBuscadorUsuarios);
+router.get("/DetalleUsuario?:user", controladorUsuarios.DetalleUsuario);
 
 module.exports = router;
