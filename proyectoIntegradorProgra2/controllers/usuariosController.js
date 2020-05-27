@@ -49,17 +49,8 @@ let controladorUsuarios = {
         moduloLogin.validar(req.body.email, req.body.password)
         .then(resultado=> {        
             if(resultado != null){
-                // let id_user = req.query.id_user
-                // db.reviews.findAll({
-                //     where:{
-                //         id_user: id_user,             
                 req.session.usuarioLogeado = req.body.email
                 res.redirect("/home/myReviews")
-        //      }
-        //      })
-        // .then(function(){
-        //   return res.render("myReviews", {review: reviews})
-        //   }) 
           } else{
             return res.send("error")
           }
@@ -69,16 +60,43 @@ let controladorUsuarios = {
     myReviews: function(req,res){
         if(req.session.usuarioLogeado){
             moduloLogin.buscarPorEmail(req.session.usuarioLogeado)
-            .then(function(usuario){
-                res.render("myReviews")
-            })
+            .then(function(resultado){
+                console.log(resultado);
+                let id = resultado.id_user
+                console.log(id);           
+                return id
+            })          
+            .then(function(id){
+                console.log(id);
+                let reviews = db.reviews.findAll({
+                    where : {id_user: id}
+                    })   
+                return reviews
+            })       
+            .then(function(reviews){
+                res.render("myReviews", {reviews: reviews})
+            })        
         }else{
             res.redirect("/home/login")
         }
     },
-
-
-
+    editReviewsForm: function(req,res){
+        var id_review = req.query.id
+        res.render("editReviewsForm", {id_review: id_review})
+    },
+    editReviews: function(req,res){       
+        id = req.body.id_review;
+        db.reviews.update({
+            texto: req.body.texto,
+            puntaje: req.body.puntaje,
+        },
+        {
+            where: {id_review: id}
+        })
+        .then(function(){
+        res.redirect("/home/myReviews")
+        })
+    },
 
 
 
