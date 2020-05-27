@@ -19,6 +19,8 @@ router.post("/registrarse", controlador.crearUsuario);
 router.get("/BuscadorDeUsuarios", controladorUsuarios.buscarUsuario);
 router.get("/ResultadoDeUsuarios", controladorUsuarios.ResultadosBuscadorUsuarios);
 router.get("/DetalleUsuario", controladorUsuarios.DetalleUsuario);
-router.get("/myReviews", controladorUsuarios.myReviewsLogin);
+router.get("/login", controladorUsuarios.formularioLogin);
+router.post("/login", controladorUsuarios.login);
+router.get("/myReviews", controladorUsuarios.myReviews);
 
 module.exports = router;

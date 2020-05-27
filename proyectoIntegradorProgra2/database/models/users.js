@@ -27,9 +27,9 @@ module.exports = (sequelize, DataTypes) => {
 
   const users = sequelize.define("users", cols, config);
   users.associate = function(models){
-    users.belongsTo(models.reviews, {
+    users.hasMany(models.reviews, {
         as: "reviews",
-        Foreignkey: "id_user"
+        foreignKey: "id_user"
     })}
   return users
 }

@@ -19,7 +19,11 @@ var controlador = {
     db.reviews.findAll({
       where:{
           id_serie: id_serie,
-      }
+      },
+      include : [
+        {association: "user"}
+    ]
+
     })
     .then(function(reviews){
       var id_serie = req.query.id
@@ -60,6 +64,7 @@ var controlador = {
           id_user: resultado.id_user,
           puntaje: req.body.puntaje,
           texto: req.body.texto,
+          created_at: db.sequelize.literal("CURRENT_DATE"),
         }
         console.log(review)   
         db.reviews.create(review)

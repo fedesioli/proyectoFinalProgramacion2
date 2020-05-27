@@ -17,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
       },
       texto:{
         type: DataTypes.STRING
+      },
+      created_at:{
+        type: DataTypes.DATE
       }
   
     }
@@ -27,9 +30,9 @@ module.exports = (sequelize, DataTypes) => {
   
     const reviews = sequelize.define("reviews", cols, config);
     reviews.associate = function(models){
-      reviews.hasMany(models.users, {
-        as: "users",
-       Foreignkey: "id_user"
+      reviews.belongsTo(models.users, {
+        as: "user",
+       foreignKey: "id_user"
        })
     }
     return reviews

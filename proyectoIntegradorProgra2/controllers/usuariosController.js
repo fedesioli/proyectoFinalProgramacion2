@@ -31,27 +31,48 @@ let controladorUsuarios = {
             res.render('DetalleUsuario', {resultado:resultado})
         })
     },
-    myReviewsLogin: function(req,res){
-        res.render("myReviewsLogin")
+    formularioLogin: function(req,res){
+        console.log(req.session.usuarioLogeado);
+        
+        if(req.session.usuarioLogeado){
+            moduloLogin.buscarPorEmail(req.session.usuarioLogeado)
+            .then(function(usuario){
+                res.redirect("/home/myReviews")
+            })
+        }else{
+            res.render("formularioLogin")
+        }
     },
-    myReviews: function(req,res){
+    login: function(req,res){
         moduloLogin.validar(req.body.email, req.body.password)
         .then(resultado=> {        
             if(resultado != null){
-                let id_user = req.query.id_user
-                db.reviews.findAll({
-                    where:{
-                        id_user: id_user,
-                    }
-                })
-        .then(function(){
-          return res.render("myReviews", {review: reviews})
-          }) 
+                // let id_user = req.query.id_user
+                // db.reviews.findAll({
+                //     where:{
+                //         id_user: id_user,             
+                req.session.usuarioLogeado = req.body.email
+                res.redirect("/home/myReviews")
+        //      }
+        //      })
+        // .then(function(){
+        //   return res.render("myReviews", {review: reviews})
+        //   }) 
           } else{
             return res.send("error")
           }
           })
 
+    },
+    myReviews: function(req,res){
+        if(req.session.usuarioLogeado){
+            moduloLogin.buscarPorEmail(req.session.usuarioLogeado)
+            .then(function(usuario){
+                res.render("myReviews")
+            })
+        }else{
+            res.redirect("/home/login")
+        }
     },
 
 

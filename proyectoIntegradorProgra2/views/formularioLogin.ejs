@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Barlow:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.8/css/uikit.css">
+  <link rel="stylesheet" href="../public/stylesheets/loginReviews.css">
 </head>
 <body>
   <div class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade" uk-height-viewport>
@@ -15,25 +16,25 @@
         <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
           <div class="uk-width-1-1@m">
             <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-              <h3 class="uk-card-title uk-text-center">Welcome back!</h3>
-              <form action="/home/myReviews" method="GET">
+              <h3 class="uk-card-title uk-text-center">Bienvenido de vuelta!</h3>
+              <form action="/home/login" method="POST">
                 <div class="uk-margin">
                   <div class="uk-inline uk-width-1-1">
                     <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                    <input class="uk-input uk-form-large" type="text">
+                    <input class="uk-input uk-form-large" type="text" name="email">
                   </div>
                 </div>
                 <div class="uk-margin">
                   <div class="uk-inline uk-width-1-1">
                     <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                    <input class="uk-input uk-form-large" type="password">	
+                    <input class="uk-input uk-form-large" type="password" name="password">	
                   </div>
                 </div>
                 <div class="uk-margin">
                   <button class="uk-button uk-button-primary uk-button-large uk-width-1-1">Login</button>
                 </div>
                 <div class="uk-text-small uk-text-center">
-                  Not registered? <a href="#">Create an account</a>
+                  No tenes una cuenta? <a href="/home/registrarse">Crea la tuya aca!</a>
                 </div>
               </form>
             </div>
