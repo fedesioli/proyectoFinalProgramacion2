@@ -28,7 +28,7 @@ let controladorUsuarios = {
         }
             )
         .then (function(resultado){
-            console.log(resultado.reviews[1].texto);
+           
             
             res.render('DetalleUsuario', {resultado:resultado})
         })
