@@ -1,5 +1,6 @@
 let db = require("../database/models/index");
 let op = db.Sequelize.Op;
+let moduloLogin = require("../modulos/login");
 
 let controladorUsuarios = {
 
@@ -29,7 +30,29 @@ let controladorUsuarios = {
         .then (function(resultado){
             res.render('DetalleUsuario', {resultado:resultado})
         })
-        }
+    },
+    myReviewsLogin: function(req,res){
+        res.render("myReviewsLogin")
+    },
+    myReviews: function(req,res){
+        moduloLogin.validar(req.body.email, req.body.password)
+        .then(resultado=> {        
+            if(resultado != null){
+                let id_user = req.query.id_user
+                db.reviews.findAll({
+                    where:{
+                        id_user: id_user,
+                    }
+                })
+        .then(function(){
+          return res.render("myReviews", {review: reviews})
+          }) 
+          } else{
+            return res.send("error")
+          }
+          })
+
+    },
 
 
 

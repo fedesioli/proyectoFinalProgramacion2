@@ -5,7 +5,7 @@ var moduloLogin = {
   chequearUsuario: function (email) {
       return db.users.findOne({
           where: {
-              email: req.body.email
+              email: email
           }
       })
       .then(function(usuario) {
