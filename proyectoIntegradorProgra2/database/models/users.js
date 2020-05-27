@@ -26,11 +26,10 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   const users = sequelize.define("users", cols, config);
-  
-
   users.associate = function(models){
     users.belongsTo(models.reviews, {
         as: "reviews",
         Foreignkey: "id_user"
     })}
+  return users
 }

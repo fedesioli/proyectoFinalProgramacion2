@@ -1,6 +1,7 @@
-let db = require("../database/models");
+let db = require("../database/models/index");
 let op = db.Sequelize.Op;
-let controlador = {
+
+let controladorUsuarios = {
 
     buscarUsuario: function(req,res){
         res.render("BuscadorDeUsuarios")
@@ -37,8 +38,4 @@ let controlador = {
 
 }
 
-
-
-
-
-module.exports = controlador
+module.exports = controladorUsuarios
