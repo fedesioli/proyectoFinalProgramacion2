@@ -97,6 +97,15 @@ let controladorUsuarios = {
         res.redirect("/home/myReviews")
         })
     },
+    deleteReview: function(req,res){
+       let id = req.query.id
+       db.reviews.destroy({
+           where: {id_review: id}
+       })
+       .then(function(){
+           res.redirect("/home/myReviews")
+       })
+    }
 
 
 
