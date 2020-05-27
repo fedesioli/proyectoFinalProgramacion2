@@ -23,8 +23,8 @@
       <div><%= resultado.birth_date%></div>
       <h2>Reseñas de <%= resultado.username%></h2>
         <ul>
-            <% for(i = 0; i < resultado.length; i++){ %>
-                <li></li>
+            <% for(i = 0; i < resultado.reviews.length; i++){ %>
+                <li><%=resultado.reviews[i].texto%></li>
                 <%}%>
         </ul>
     </main>
