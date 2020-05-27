@@ -20,25 +20,49 @@
     <h1>Bienvenido a Series Flash</h1>
     <h3>Por favor registrate completando los siguientes campos:</h3>
     <main>
+       
+        <div class="containerForm">
+           
         <form action="/home/registrarse" method="POST">
-            <label for="">Ingresa tu nombre de usuario</label>
-            <input type="text" name="username" value="" placeholder="Usuario">
-            <br>
-            <br>
+            <div class="preguntas">
+                <label for="">Ingresa tu nombre de usuario</label> 
+            </div>
+
+            <div class="input">
+            <input type="text" name="username" value="" placeholder="Usuario" id="input">
+            </div>
+
+            <div class="preguntas">
             <label for="">¿Como es tu e-mail?</label>
-            <input type="mail" name="email" value="" placeholder="john@mail.com">
-            <br>
-            <br>
+            </div>
+
+            <div class="input">
+            <input type="mail" name="email" value="" placeholder="john@mail.com" id="input">
+            </div>
+
+            <div class="preguntas"> 
             <label for="">¿Cual va a ser tu contraseña?</label>
-            <input type="password" name="password" placeholder="Contraseña">
-            <br>
-            <br>
+            </div>
+
+            <div class="input">
+            <input type="password" name="password" placeholder="Contraseña" id="input">
+            </div>
+            
+            <div class="preguntas">
             <label for="">Indicanos tu fecha de nacimiento</label>
-            <input type="date" name="birth_date" value="">
-            <br>
-            <br>
-            <input type="submit" value="Registrate!" id="">
+            </div>
+
+            <div class="input">
+            <input type="date" name="birth_date" value="" id="input">
+            </div>
+            
+            <div class="submit">
+            <input type="submit" value="Registrate!" id="submit">
+            </div>
+            
         </form>
+
+    </div>
 
     </main>
     <%-include("footer")%>

@@ -12,10 +12,11 @@ body{
   body main{
     margin-left: 2%;
     margin-right: 2%;
+    text-align: center;
   }
   
   header nav div a{
-    color: #999;
+    color:white;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   }
   header nav div a img{
@@ -46,8 +47,59 @@ body{
   }
   h3{
     margin-left: 20px;
-    padding-left: 20px;
+    padding-left: 60px;
     padding-top: 0;
+  }
+
+  div.containerForm {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    padding-top: 30px;
+  
+  }
+
+  div.preguntas {
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: black;
+  }
+
+  div.input {
+    margin-bottom: 40px;
+    border-radius: 20px;
+  }
+
+  #input {
+    height: 40px;
+    width: 230px;
+    border: solid gainsboro 2px;
+    border-radius: 10px;
+    padding-left: 3px;
+  }
+
+   #input:hover {
+    border: solid black 2px;
+    transition: .5s;
+   }
+
+  div.submit {
+    margin-top: 70px;
+    margin-bottom: 100px;
+  }
+
+  #submit {
+    border: solid gainsboro 3px;
+    height: 45px;
+    width: 120px;
+    border-radius: 20px;
+  }
+
+  #submit:hover {
+    border: solid rgb(43, 149, 235) 3px;
+    transition: .3s;
   }
 /*Footer */
 
