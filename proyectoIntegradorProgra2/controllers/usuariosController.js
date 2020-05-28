@@ -28,8 +28,7 @@ let controladorUsuarios = {
         }
             )
         .then (function(resultado){
-           
-            
+             
             res.render('DetalleUsuario', {resultado:resultado})
         })
     },
@@ -89,6 +88,7 @@ let controladorUsuarios = {
         db.reviews.update({
             texto: req.body.texto,
             puntaje: req.body.puntaje,
+            updated_at: db.sequelize.literal("CURRENT_DATE"),
         },
         {
             where: {id_review: id}

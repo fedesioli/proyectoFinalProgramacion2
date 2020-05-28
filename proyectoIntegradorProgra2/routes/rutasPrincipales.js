@@ -23,6 +23,6 @@ router.get("/login", controladorUsuarios.formularioLogin);
 router.post("/login", controladorUsuarios.login);
 router.get("/myReviews", controladorUsuarios.myReviews);
 router.get("/editReview", controladorUsuarios.editReviewsForm);
+router.post("/editReview", controladorUsuarios.editReviews);
 router.get("/deleteReview", controladorUsuarios.deleteReview);
-
 module.exports = router;
