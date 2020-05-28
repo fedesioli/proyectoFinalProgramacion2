@@ -54,20 +54,27 @@ var controlador = {
       res.redirect("/home")
   },
   nuevaReview: function(req,res){
-       
-        let review = {
-          id_serie: req.body.id_serie,
-          id_user: req.session.usuarioLogeado,
-          puntaje: req.body.puntaje,
-          texto: req.body.texto,
-          created_at: db.sequelize.literal("CURRENT_DATE"),
-          created_at: db.sequelize.literal("CURRENT_DATE"),
-        }
-        console.log(review)   
-        db.reviews.create(review)
-        .then(function(){
-        return res.redirect("/home")
-        })                     
+       db.users.findOne({        
+          where:{
+              email: req.session.usuarioLogeado,
+          },
+       })
+       .then(function(usuario){
+         let id_user = usuario.id_user
+         let review = {
+           id_serie: req.body.id_serie,
+           id_user: id_user,
+           puntaje: req.body.puntaje,
+           texto: req.body.texto,
+           created_at: db.sequelize.literal("CURRENT_DATE"),
+           updated_at: db.sequelize.literal("CURRENT_DATE"),
+         }
+         console.log(review)   
+         db.reviews.create(review)
+         .then(function(){
+         return res.redirect("/home")
+         })                     
+       })
   }
 }
 
