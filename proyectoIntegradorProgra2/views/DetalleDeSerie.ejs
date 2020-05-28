@@ -47,40 +47,43 @@
                   <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">Usuario</a></h4>
                   <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
                     <li><%=reviews[i].puntaje %></li>
-                    <li><%=reviews[i].user.email %></li>
+                    <li><%=reviews[i].created_at %></li>
                   </ul>
                 </div>
               </header>
               <div class="uk-comment-body">
-                <p><%=reviews[i].texto %></p>
+                <p>"<%=reviews[i].texto %>"</p>
               </div>
             </article>
           <% } %>
+            
+            <% if(usuarioLogeado){ %>
             <br>
             <br>
-            <div class="new-review">
-          <form action="/home/detalle" method="POST">
-            <input type="hidden" name="id_serie" value="<%=id_serie%>">
-            <label for="">Deja tu propia review!</label>
-            <br>
-            <input type="text" name="texto" placeholder="Contanos que te parecio la serie!">
-            <br>
-            <label for="">Puntuala!</label>
-            <select name="puntaje" id="">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-            <br>
-            <label for="">Necesitamos tus datos de usuario:</label>
-            <input type="text" name="email" placeholder="Email">
-            <input type="password" name="password" placeholder="Password">
-            <br>
-            <input type="submit" value="Enviar">
-          </form>
-        </div>
+              <div class="new-review">
+                <form action="/home/detalle" method="POST">
+                  <input type="hidden" name="id_serie" value="<%=id_serie%>">
+                  <label for="">Deja tu propia review!</label>
+                  <br>
+                  <input type="text" name="texto" placeholder="Contanos que te parecio la serie!">
+                  <br>
+                  <label for="">Puntuala!</label>
+                  <select name="puntaje" id="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <br>
+                  <input type="submit" value="Enviar">
+                </form>
+              </div>
+            <% } else{ %>
+              <div class="new-review">
+                <div><a href="/home/login">LOGUEATE PARA DEJAR TU COMENTARIO!</a></div>
+              </div> 
+            <% } %>
         </div>
       </div>
       

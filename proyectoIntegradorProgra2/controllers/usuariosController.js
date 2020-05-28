@@ -28,8 +28,7 @@ let controladorUsuarios = {
         }
             )
         .then (function(resultado){
-           
-            
+             
             res.render('DetalleUsuario', {resultado:resultado})
         })
     },
@@ -89,6 +88,7 @@ let controladorUsuarios = {
         db.reviews.update({
             texto: req.body.texto,
             puntaje: req.body.puntaje,
+            updated_at: db.sequelize.literal("CURRENT_DATE"),
         },
         {
             where: {id_review: id}
@@ -97,6 +97,15 @@ let controladorUsuarios = {
         res.redirect("/home/myReviews")
         })
     },
+    deleteReview: function(req,res){
+       let id = req.query.id
+       db.reviews.destroy({
+           where: {id_review: id}
+       })
+       .then(function(){
+           res.redirect("/home/myReviews")
+       })
+    }
 
 
 

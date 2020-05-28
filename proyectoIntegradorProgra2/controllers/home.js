@@ -24,7 +24,9 @@ var controlador = {
         {association: "user"}
     ]
     })
-    .then(function(reviews){
+    .then(function(reviews){     
+      console.log(reviews);
+       
       var id_serie = req.query.id
     res.render("DetalleDeSerie", {reviews: reviews, id_serie: id_serie})
     })
@@ -52,30 +54,27 @@ var controlador = {
       res.redirect("/home")
   },
   nuevaReview: function(req,res){
-    moduloLogin.validar(req.body.email, req.body.password)
-    .then(resultado=> {
-      console.log(resultado)
-
-      if(resultado != null){
-       
-        let review = {
-          id_serie: req.body.id_serie,
-          id_user: resultado.id_user,
-          puntaje: req.body.puntaje,
-          texto: req.body.texto,
-          created_at: db.sequelize.literal("CURRENT_DATE"),
-          updated_at: db.sequelize.literal("CURRENT_DATE"),
-        }
-        console.log(review)   
-        db.reviews.create(review)
-        .then(function(){
-        return res.redirect("/home")
-        })               
-      } else{
-        return res.send("error")
-      }
-      })
-      
+       db.users.findOne({        
+          where:{
+              email: req.session.usuarioLogeado,
+          },
+       })
+       .then(function(usuario){
+         let id_user = usuario.id_user
+         let review = {
+           id_serie: req.body.id_serie,
+           id_user: id_user,
+           puntaje: req.body.puntaje,
+           texto: req.body.texto,
+           created_at: db.sequelize.literal("CURRENT_DATE"),
+           updated_at: db.sequelize.literal("CURRENT_DATE"),
+         }
+         console.log(review)   
+         db.reviews.create(review)
+         .then(function(){
+         return res.redirect("/home")
+         })                     
+       })
   }
 }
 
