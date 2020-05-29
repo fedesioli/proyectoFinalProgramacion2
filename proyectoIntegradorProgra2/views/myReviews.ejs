@@ -20,7 +20,7 @@
       <h2> Estas son tus reseñas:</h2>
       <ul class="uk-list uk-list-striped">
           <% for(i = 0; i < reviews.length; i++){ %>
-              <li>"<%=reviews[i].texto%>" Puntaje: <%=reviews[i].puntaje%><a href="/home/editReview?id=<%=reviews[i].id_review%>" class="uk-icon-link uk-margin-small-right" id="editaryborrar" uk-icon="file-edit"></a>
+              <li><a href="/home/detalle?id=<%=reviews[i].id_serie%>"> "<%=reviews[i].texto%>" </a> Puntaje: <%=reviews[i].puntaje%><a href="/home/editReview?id=<%=reviews[i].id_review%>" class="uk-icon-link uk-margin-small-right" id="editaryborrar" uk-icon="file-edit"></a>
                 <a href="/home/deleteReview?id=<%=reviews[i].id_review%>" class="uk-icon-link" id="editaryborrar" uk-icon="trash"></a></li>
               <%}%>
       </ul>
