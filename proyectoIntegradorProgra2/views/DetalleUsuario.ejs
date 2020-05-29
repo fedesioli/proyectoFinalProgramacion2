@@ -24,7 +24,7 @@
       <h2>Reseñas de <%= resultado.username%></h2>
         <ul>
             <% for(i = 0; i < resultado.reviews.length; i++){ %>
-                <li><%=resultado.reviews[i].texto%></li>
+                <li><a href="/home/detalle?id=<%=resultado.reviews[i].id_serie%>"><%=resultado.reviews[i].texto%></a></li>
                 <%}%>
         </ul>
     </main>
