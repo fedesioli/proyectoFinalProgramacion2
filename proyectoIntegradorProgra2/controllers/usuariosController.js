@@ -56,6 +56,10 @@ let controladorUsuarios = {
           })
 
     },
+    logOut: function(req,res){
+        req.session.destroy();
+        res.redirect("/home")
+    },
     myReviews: function(req,res){
         if(req.session.usuarioLogeado){
             moduloLogin.buscarPorEmail(req.session.usuarioLogeado)

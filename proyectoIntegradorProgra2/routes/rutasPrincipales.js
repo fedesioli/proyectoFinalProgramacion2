@@ -21,6 +21,7 @@ router.get("/ResultadoDeUsuarios", controladorUsuarios.ResultadosBuscadorUsuario
 router.get("/DetalleUsuario", controladorUsuarios.DetalleUsuario);
 router.get("/login", controladorUsuarios.formularioLogin);
 router.post("/login", controladorUsuarios.login);
+router.get("/logOut", controladorUsuarios.logOut)
 router.get("/myReviews", controladorUsuarios.myReviews);
 router.get("/editReview", controladorUsuarios.editReviewsForm);
 router.post("/editReview", controladorUsuarios.editReviews);

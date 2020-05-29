@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    <link rel="stylesheet" href="/stylesheets/myReviews.css">
-  <script src="/javascripts/home.js" charset="utf-8"></script>
+  <script src="/javascripts/myReviews.js" charset="utf-8"></script>
   <script src="https://kit.fontawesome.com/4cbe2a5007.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
 
@@ -19,14 +19,24 @@
     <main>
       <div id="divLogout">
       <h2> Estas son tus reseñas:</h2>
-      <a class="uk-button uk-button-default" href="" id="logout">Log-Out</a>
+      <a class="uk-button uk-button-default" href="/home/logOut" id="logout">Log-Out</a>
       </div>
       <ul class="uk-list uk-list-striped">
           <% for(i = 0; i < reviews.length; i++){ %>
               <li><a href="/home/detalle?id=<%=reviews[i].id_serie%>"> "<%=reviews[i].texto%>" </a> <p> Puntaje: <%=reviews[i].puntaje%> </p><a href="/home/editReview?id=<%=reviews[i].id_review%>" class="uk-icon-link uk-margin-small-right" id="editaryborrar" uk-icon="file-edit"></a>
-                <a href="/home/deleteReview?id=<%=reviews[i].id_review%>" class="uk-icon-link" id="" uk-icon="trash"></a></li>
+                <a href="/home/editReview?id=<%=reviews[i].id_review%>" uk-toggle="target: #modal-example" id="js-modal-confirm" class="uk-icon-link " uk-icon="trash"></a></li>
               <%}%>
+              <div id="modal-example" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body">
+                    <h2 class="uk-modal-title">Atencion</h2>
+                    <p>Estas por borrar esta review. Quieres hacerlo?</p>
+                    <p class="uk-text-right">
+                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                        <button class="uk-button uk-button-primary" type="button">Borrar</button>
+                    </p>
+                </div>
       </ul>
+    </div>
   </main>
   <%-include("footer")%>
 </body>
