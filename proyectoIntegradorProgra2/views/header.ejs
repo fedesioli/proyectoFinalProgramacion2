@@ -53,11 +53,11 @@
           <div><a href="/home/BuscadorDeUsuarios">BUSCADOR DE USUARIOS</a></div>
         </div>
         <div class="uk-navbar-item ocultar">
-         <% if(usuarioLogeado){ %>
-          <div><a href="/home/myReviews"><%=usuarioLogeado%></a></div>          
-        <% } else{ %> 
-          <div><a href="/home/login">LOGIN</a></div> 
-        <% } %>
+          <% if(usuarioLogeado){ %>          
+            
+          <% } else{ %>
+            <div><a href="/home/registrarse">REGISTRATE</a></div>    
+          <% } %>          
         </div>
         <div class="buscador">
         <div class="uk-navbar-item">         
@@ -65,7 +65,12 @@
             <input class="uk-input uk-form-width-small" name="buscador" type="text" placeholder="Encontra la serie que buscas!">
             <button class="uk-button uk-button-default"><i class="fas fa-search"></i></button>
           </form>
-          <a href="/home/registrarse" uk-icon="icon: user"></a>
+          <% if(usuarioLogeado){ %>          
+          <a href="/home/myReviews" uk-icon="icon: user"></a>
+        <% } else{ %>
+          <a href="/home/login" uk-icon="icon: user"></a> 
+        <% } %>
+          
         </div>
         </div>
       </div>
