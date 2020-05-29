@@ -50,7 +50,16 @@ button.mostrar-buscador{
 }
 
 #editaryborrar{
-  text-align: right;
+  margin-left: 10px;
+}
+
+#divLogout{
+  display: flex;
+}
+
+#logout{
+  margin-left: 750px;
+  text-align: center;
 }
 @media (max-width: 680px){
 
