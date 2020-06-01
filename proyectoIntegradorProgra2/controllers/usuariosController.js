@@ -41,7 +41,8 @@ let controladorUsuarios = {
                 res.redirect("/home/myReviews")
             })
         }else{
-            res.render("formularioLogin")
+            let error
+            res.render("formularioLogin", {error: error})
         }
     },
     login: function(req,res){
@@ -51,7 +52,8 @@ let controladorUsuarios = {
                 req.session.usuarioLogeado = req.body.email
                 res.redirect("/home/myReviews")
           } else{
-            return res.send("error")
+              let error = "Por favor ingresa un usario y contraseña validos"
+            return res.render("formularioLogin", {error: error})
           }
           })
 

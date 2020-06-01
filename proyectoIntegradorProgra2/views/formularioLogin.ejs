@@ -34,6 +34,10 @@
                   <button class="uk-button uk-button-primary uk-button-large uk-width-1-1">Login</button>
                 </div>
                 <div class="uk-text-small uk-text-center">
+                <% if(error != ""){ %>
+                  <p><font color="red"> <%=error%></p>
+                <%}%>
+                <font color="black">
                   No tenes una cuenta? <a href="/home/registrarse">Crea la tuya aca!</a>
                 </div>
               </form>
