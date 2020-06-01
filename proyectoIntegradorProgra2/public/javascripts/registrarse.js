@@ -7,11 +7,11 @@ window.onload = function(){
 
   registrarse.onsubmit = function(event){
 
-    if (username = null){
+    if (username.value == ""){
       event.preventDefault();
       alert("Ingresa un nombre de usuario")
     } else{
-      if (email = null){
+      if (email.value == ""){
         event.preventDefault();
         alert("Ingresa un email valido")
       }           

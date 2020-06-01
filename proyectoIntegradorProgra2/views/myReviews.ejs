@@ -24,17 +24,21 @@
       <ul class="uk-list uk-list-striped">
           <% for(i = 0; i < reviews.length; i++){ %>
               <li><a href="/home/detalle?id=<%=reviews[i].id_serie%>"> "<%=reviews[i].texto%>" </a> <p> Puntaje: <%=reviews[i].puntaje%> </p><a href="/home/editReview?id=<%=reviews[i].id_review%>" class="uk-icon-link uk-margin-small-right" id="editaryborrar" uk-icon="file-edit"></a>
-                <a href="/home/editReview?id=<%=reviews[i].id_review%>" uk-toggle="target: #modal-example" id="js-modal-confirm" class="uk-icon-link " uk-icon="trash"></a></li>
-              <%}%>
-              <div id="modal-example" uk-modal>
+                <a href="" uk-toggle="target: #modal-<%=reviews[i].id_review%>" id="js-modal-confirm" class="uk-icon-link " uk-icon="trash"></a></li>
+  
+          <%}%>
+          <% for(i = 0; i < reviews.length; i++){ %>
+            
+              <div id="modal-<%=reviews[i].id_review%>" uk-modal>
                 <div class="uk-modal-dialog uk-modal-body">
                     <h2 class="uk-modal-title">Atencion</h2>
                     <p>Estas por borrar esta review. Quieres hacerlo?</p>
                     <p class="uk-text-right">
                         <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                        <button class="uk-button uk-button-primary" type="button">Borrar</button>
+                        <a href="/home/deleteReview?id=<%=reviews[i].id_review%>"><button class="uk-button uk-button-primary" type="button">Borrar</button></a>
                     </p>
                 </div>
+        <%}%>
       </ul>
     </div>
   </main>

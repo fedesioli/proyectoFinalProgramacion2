@@ -1,5 +1,6 @@
 let db = require("../database/models/index");
 let op = db.Sequelize.Op;
+let bcrypt = require("bcryptjs")
 
 var moduloLogin = {
   chequearUsuario: function (email) {
@@ -28,11 +29,15 @@ var moduloLogin = {
       return db.users.findOne({
           where:{
               email: email,
-              password: password,
           },
       })
       .then(results=>{
-            return results
+          if(results && bcrypt.compareSync(password, results.password)){
+
+              return results
+          } else{
+            return null
+          }
       })
   },
 }

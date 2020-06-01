@@ -1,7 +1,7 @@
 let db = require("../database/models/index");
 let op = db.Sequelize.Op;
 let moduloLogin = require("../modulos/login");
-
+let bcrypt = require("bcryptjs")
 
 var controlador = {
 
@@ -44,10 +44,11 @@ var controlador = {
     res.render("registrarse")
   },
   crearUsuario: function(req,res){
-      let usuario = {
+    let encriptada = bcrypt.hashSync(req.body.password, 10)
+    let usuario = {
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password,
+      password: encriptada,
       birth_date: req.body.birth_date,      
     }
     db.users.create(usuario)
