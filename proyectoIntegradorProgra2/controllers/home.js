@@ -41,19 +41,34 @@ var controlador = {
     res.render("ResultadoDeBuscador")
   },
   registrarse: function(req,res) {
-    res.render("registrarse")
+    let error
+    res.render("registrarse", {error:error})
   },
   crearUsuario: function(req,res){
     let encriptada = bcrypt.hashSync(req.body.password, 10)
-    let usuario = {
-      username: req.body.username,
-      email: req.body.email,
-      password: encriptada,
-      birth_date: req.body.birth_date,      
-    }
-    db.users.create(usuario)
-      res.redirect("/home")
-  },
+    // LOGICA DE REGISTRACION
+    db.users.findOne({
+      where: {
+          email: req.body.email
+      }})
+    .then(function(usuarios){
+      if(usuarios) {
+        let error = "Este email ya esta en uso, ingrese con su cuenta."
+        res.render("registrarse", {error:error})
+      } else {
+        let usuarioNuevo = {
+          username: req.body.username,
+          email: req.body.email,
+          password: encriptada,
+          birth_date: req.body.birth_date
+        }
+        db.users.create(usuarioNuevo)
+        res.redirect("/home")
+      }
+     
+    
+    
+  })},
   nuevaReview: function(req,res){
        db.users.findOne({        
           where:{
