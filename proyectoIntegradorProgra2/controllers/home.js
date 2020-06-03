@@ -53,7 +53,7 @@ var controlador = {
       }})
     .then(function(usuarios){
       if(usuarios) {
-        let error = "Este email ya esta en uso, ingrese con su cuenta."
+        let error = "Este email ya esta en uso"
         res.render("registrarse", {error:error})
       } else {
         let usuarioNuevo = {

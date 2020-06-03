@@ -38,6 +38,9 @@
 
             <div class="input">
             <input type="mail" name="email" value="" placeholder="john@mail.com" id="input" required>
+            <% if(error != ""){ %>
+                <p><font color="red"> <%=error%></p>
+              <%}%>
             </div>
 
             <div class="preguntas"> 
@@ -56,9 +59,7 @@
             <input type="date" name="birth_date" value="" id="input">
             </div>
 
-            <% if(error != ""){ %>
-                <p><font color="red"> <%=error%></p>
-              <%}%>
+            
             
             <div class="submit">
             <input type="submit" value="Registrate!" id="submit">
