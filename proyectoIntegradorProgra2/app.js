@@ -10,6 +10,8 @@ var db = require("./database/models/index");
 var indexRouter = require('./routes/index');
 var principalesRouter = require("./routes/rutasPrincipales");
 
+var recordarmeMiddleware = require("./middlewares/recordarmeMiddleware");
+
 var app = express();
 
 // view engine setup
@@ -28,7 +30,7 @@ app.use(function(req,res,next){
  next() 
 })
 
-
+app.use(recordarmeMiddleware);
 
 app.use('/', indexRouter);
 app.use("/home", principalesRouter);

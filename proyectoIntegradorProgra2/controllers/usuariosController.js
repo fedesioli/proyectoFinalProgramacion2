@@ -50,6 +50,9 @@ let controladorUsuarios = {
         .then(resultado=> {        
             if(resultado != null){
                 req.session.usuarioLogeado = req.body.email
+                if(req.body.recordame != undefined){
+                    res.cookie("recordame", req.body.email, {maxAge: 60000})
+                }
                 res.redirect("/home/myReviews")
           } else{
               let error = "Por favor ingresa un usario y contraseña validos"
