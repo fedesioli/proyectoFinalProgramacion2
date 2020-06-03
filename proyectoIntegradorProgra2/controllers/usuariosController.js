@@ -51,7 +51,7 @@ let controladorUsuarios = {
             if(resultado != null){
                 req.session.usuarioLogeado = req.body.email
                 if(req.body.recordame != undefined){
-                    res.cookie("recordame", req.body.email, {maxAge: 60000})
+                    res.cookie("recordame", req.body.email, {maxAge: 3000000})
                 }
                 res.redirect("/home/myReviews")
           } else{
