@@ -135,21 +135,25 @@ window.onload = function() {
 
 
   //Likes
-  var like = document.getElementById("like");
-  like.onclick = function(){  
-    event.preventDefault();
-    let reviews = this.getAttribute("title");
-    console.log(reviews);
+  var botonesLike = document.querySelectorAll("i.fa-thumbs-up");
 
-    fetch("/home/like", {
-    method: "POST",
-    body: JSON.stringify({reviews: reviews}),
-    headers:{
-      'Content-Type': 'application/json',
-    }
-    }).then(res => res.json())
-    .catch(error => console.error("Error:" , error))
-    .then(response => console.log("Success:", response));
+  for (let i = 0; i < botonesLike.length; i ++){
+    botonesLike[i].onclick = function(){  
+     event.preventDefault();
+     let reviews = this.getAttribute("title");
+     console.log(reviews);
     
-  }
+     fetch("/home/like", {
+     method: "POST",
+     body: JSON.stringify({reviews: reviews}),
+     headers:{
+       'Content-Type': 'application/json',
+     }
+     }).then(res => res.json())
+     .catch(error => console.error("Error:" , error))
+     .then(response => console.log("Success:", response));
+     
+    }
+  } 
+
 }
