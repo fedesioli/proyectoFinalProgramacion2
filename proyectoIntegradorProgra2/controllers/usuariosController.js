@@ -114,7 +114,7 @@ let controladorUsuarios = {
        .then(function(){
            res.redirect("/home/myReviews")
        })
-    }
+    },
 
 
 

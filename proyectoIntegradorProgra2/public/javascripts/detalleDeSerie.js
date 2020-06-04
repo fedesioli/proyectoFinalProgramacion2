@@ -123,13 +123,7 @@ window.onload = function() {
 
 
   //Esto muestra el buscador en el responsive
-  var boton = document.querySelector("button.mostrar-buscador");
-  boton.onclick = function() {
-    document.querySelector("button.mostrar-buscador").style.display = "none";
-    document.querySelector("form.buscador").style.display = "block";
-    document.querySelector("div.ocultar").style.visibility = "hidden";
-    document.querySelector("ul.esconder").style.visibility = "hidden";
-  }
+ 
 
   var ventana = document.querySelector("main")
   ventana.onclick = function(){
@@ -137,5 +131,25 @@ window.onload = function() {
     document.querySelector("form.buscador").style.display = "none";
     document.querySelector("div.ocultar").style.visibility = "visible";
     document.querySelector("ul.esconder").style.visibility = "visible";
+  }
+
+
+  //Likes
+  var like = document.getElementById("like");
+  like.onclick = function(){  
+    event.preventDefault();
+    let reviews = this.getAttribute("title");
+    console.log(reviews);
+
+    fetch("/home/like", {
+    method: "POST",
+    body: JSON.stringify({reviews: reviews}),
+    headers:{
+      'Content-Type': 'application/json',
+    }
+    }).then(res => res.json())
+    .catch(error => console.error("Error:" , error))
+    .then(response => console.log("Success:", response));
+    
   }
 }

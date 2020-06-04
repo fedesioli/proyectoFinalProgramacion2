@@ -24,9 +24,7 @@ var controlador = {
         {association: "user"}
     ]
     })
-    .then(function(reviews){     
-      console.log(reviews);
-       
+    .then(function(reviews){           
       var id_serie = req.query.id
     res.render("DetalleDeSerie", {reviews: reviews, id_serie: id_serie})
     })
@@ -84,14 +82,34 @@ var controlador = {
            texto: req.body.texto,
            created_at: db.sequelize.literal("CURRENT_DATE"),
            updated_at: db.sequelize.literal("CURRENT_DATE"),
-         }
-         console.log(review)   
+         }  
          db.reviews.create(review)
          .then(function(){
          return res.redirect("/home")
          })                     
        })
-  }
+  },
+  like: function(req,res){
+    console.log(req.session.usuarioLogeado);
+    let user = db.users.findOne({
+      where: {email: req.session.usuarioLogeado}
+    })
+    
+    .then(function(user){
+      let id = user.id_user
+      let idreview = req.body.reviews
+      
+      let like = {
+      id_user: id,
+      id_review: idreview,
+      }
+      db.megusta.create(like)
+      .then(function(){
+      res.send({status: "Success"})
+        
+        }) 
+    })
+},
 }
 
 

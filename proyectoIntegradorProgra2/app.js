@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require("express-session")
+let bodyParser = require("body-parser")
 
 var db = require("./database/models/index");
 
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: "session"}))
+app.use(bodyParser.json());
 
 app.use(function(req,res,next){
  res.locals = {usuarioLogeado: req.session.usuarioLogeado}
