@@ -94,20 +94,29 @@ var controlador = {
     let user = db.users.findOne({
       where: {email: req.session.usuarioLogeado}
     })
-    
     .then(function(user){
       let id = user.id_user
       let idreview = req.body.reviews
-      
-      let like = {
-      id_user: id,
-      id_review: idreview,
-      }
-      db.megusta.create(like)
-      .then(function(){
-      res.send({status: "Success"})
+      let likePrevio = db.megusta.findOne({
+        where: {id_user: id, id_review: idreview}
+      })
+      return likePrevio
+      .then(function(likePrevio){
+        let id = user.id_user
+        if(likePrevio == null){
+          let like = {
+          id_user: id,
+          id_review: idreview,
+          }
+          db.megusta.create(like)
+          .then(function(){
+            res.send({status: "Success"})
+          })
+        }else{
+          res.send({status: "Success"})
+        }
         
-        }) 
+      }) 
     })
 },
 }
