@@ -57,10 +57,13 @@ button.mostrar-buscador{
   display: flex;
 }
 
-#logout{
-  margin-left: 750px;
-  text-align: center;
+div.divLogout{
+display: flex;
+height: 40px;
+flex-wrap: nowrap;
+justify-content: space-between;
 }
+
 @media (max-width: 680px){
 
   button.mostrar-buscador{

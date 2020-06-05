@@ -17,9 +17,17 @@
 <body>
   <%-include("header")%>
     <main>
-      <div id="divLogout">
-      <h2> Estas son tus reseñas:</h2>
-      <a class="uk-button uk-button-default" href="/home/logOut" id="logout">Log-Out</a>
+      <div class="divLogout">
+        <div>
+        <% if(reviews.length != 0){%>      
+        <h2> Estas son tus reseñas:</h2>
+        <%} else {%>  
+        <h2>Parece que no has hecho ninguna reseña todavia!</h2>
+        <%}%>
+        </div>
+        <div>
+        <a class="uk-button uk-button-default" href="/home/logOut" id="logout">Log-Out</a>
+        </div>
       </div>
       <ul class="uk-list uk-list-striped">
           <% for(i = 0; i < reviews.length; i++){ %>
