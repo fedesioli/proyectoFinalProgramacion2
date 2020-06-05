@@ -21,12 +21,22 @@ var controlador = {
           id_serie: id_serie,
       },
       include : [
-        {association: "user"}
+        {association: "user"},
+        {association: "likes"}
     ]
     })
-    .then(function(reviews){           
+    .then(function(reviews){
+      for(let i = 0; i < reviews.length; i++){
+         reviews[i].AlreadyLiked = false
+        for( let j = 0; j <reviews[i].likes.length; j++){         
+          if(reviews[i].likes[j].email == req.session.usuarioLogeado){
+            reviews[i].AlreadyLiked = true
+          }
+        }
+      }                 
       var id_serie = req.query.id
-    res.render("DetalleDeSerie", {reviews: reviews, id_serie: id_serie})
+      var usuario = req.session.usuarioLogeado
+    res.render("DetalleDeSerie", {reviews: reviews, id_serie: id_serie, usuario: usuario})
     })
   },
   porGenero: function(req,res){
@@ -85,7 +95,7 @@ var controlador = {
          }  
          db.reviews.create(review)
          .then(function(){
-         return res.redirect("/home")
+         return res.redirect("/home/detalle?id=" + req.body.id_serie)
          })                     
        })
   },

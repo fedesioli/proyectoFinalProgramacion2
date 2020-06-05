@@ -23,6 +23,9 @@ module.exports = (sequelize, DataTypes) => {
       },
       updated_at:{
         type: DataTypes.DATE
+      },
+      AlreadyLiked:{
+        type: DataTypes.VIRTUAL
       }
   
     }
@@ -36,6 +39,12 @@ module.exports = (sequelize, DataTypes) => {
       reviews.belongsTo(models.users, {
         as: "user",
        foreignKey: "id_user"
+       })
+       reviews.belongsToMany(models.users, {
+        as: "likes",
+        through: "megusta",
+       foreignKey: "id_review",
+       otherKey: "id_user",
        })
     }
     return reviews

@@ -231,7 +231,9 @@ footer div.footer-der p.abajo{
   button.series-relacionadas{
     margin-left: 15%
   }
-
+  #thumbsUp{
+    background-color: gray;
+  }
   /* Footer */
 
   footer{

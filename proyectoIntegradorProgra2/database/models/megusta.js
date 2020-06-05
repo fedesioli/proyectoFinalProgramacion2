@@ -20,12 +20,12 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   const megusta = sequelize.define("megusta", cols, config);
-  // reviews.associate = function(models){
-  //   reviews.belongsTo(models.users, {
-  //     as: "user",
-  //    foreignKey: "id_user"
-  //    })
-  // }
+  megusta.associate = function(models){
+    megusta.belongsTo(models.users, {
+      as: "user",
+     foreignKey: "id_user"
+     })
+  }
   return megusta
   
 }

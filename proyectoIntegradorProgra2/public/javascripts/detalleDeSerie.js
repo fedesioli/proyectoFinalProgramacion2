@@ -136,7 +136,7 @@ window.onload = function() {
 
   //Likes
   var botonesLike = document.querySelectorAll("i.fa-thumbs-up");
-
+  
   for (let i = 0; i < botonesLike.length; i ++){
     botonesLike[i].onclick = function(){  
      event.preventDefault();
@@ -152,7 +152,8 @@ window.onload = function() {
      }).then(res => res.json())
      .catch(error => console.error("Error:" , error))
      .then(response => console.log("Success:", response));
-     
+     document.querySelector("p.cuentaLikes-"+ reviews).innerHTML = parseInt(document.querySelector("p.cuentaLikes-"+ reviews).innerHTML) + 1
+     document.querySelectorAll("i.fa-thumbs-up").innerHTML = "likes"
     }
   } 
 

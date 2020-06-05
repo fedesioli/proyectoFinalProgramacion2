@@ -53,7 +53,13 @@
               </header>
               <div class="uk-comment-body">
                 <p>"<%=reviews[i].texto %>"</p>
-                <a href=""><i name="like" class="fa fa-thumbs-up" title="<%=reviews[i].id_review %>" %>" aria-hidden="true"></i></a>
+                <%if(!reviews[i].AlreadyLiked){%>
+                <a href=""><i name="like" id="thumbsUp" class="far fa-thumbs-up" title="<%=reviews[i].id_review %>" %>" aria-hidden="true"></i></a>
+                <p class="cuentaLikes-<%=reviews[i].id_review %>"><%= reviews[i].likes.length%></p>
+                <%}%>
+                <%if(reviews[i].AlreadyLiked){%>
+                  <i class="fa fa-thumbs-up"></i><p class="cuentaLikes-<%=reviews[i].id_review %>"><%= reviews[i].likes.length%></p>
+                <%}%>
               </div>
             </article>
           <% } %>
