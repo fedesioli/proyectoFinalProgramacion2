@@ -18,11 +18,26 @@
   <body>
     <%-include("header")%>
     <main>
+
+      <h1>Buscador de Usuarios</h1>
+
+      <div class="containerForm">
      <form action="/home/ResultadoDeUsuarios" method="GET">
+
+      <div class="preguntas">
         <label for="">Que usuario desea buscar?</label>
-        <input type="text" name="buscador" id="">
-        <input type="submit" value="Buscar!" id="">
+      </div>
+
+      <div class="input">
+        <input type="text" name="buscador" id="input">
+      </div>
+
+      <div class="submit">
+        <input type="submit" value="Buscar!" id="submit">
+      </div>
+
      </form>
+    </div>
     </main>
     <%-include("footer")%>
   </body>
