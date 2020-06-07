@@ -12,10 +12,7 @@ a#nav-header{
   color: white;
 }
 
-body main{
-  margin-left: 2%;
-  margin-right: 2%;
-}
+
 
 header a{
   color: white;
@@ -63,26 +60,55 @@ body{
   padding: 0;
 }
 body main{
-  font-family: 'Poiret One', cursive;
   margin-left: 2%;
+  margin-right: 2%;
+  text-align: center;
+  margin-top: 50px;
 }
 
-form select{
-  margin: 6px;
-  display: block;
-  margin-bottom: 10px;
+div.containerForm {
+  width: 100%;
+  height: auto;
+  padding-top: 30px;
+  text-align: center;
 }
 
-form label{
-  display: block;
-  margin-bottom: 10px;
+div.preguntas {
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
 
-form input{
-  margin: 6px;
-  display: block;
-    margin-bottom: 10px;
+#input {
+  height: 40px;
+  width: 230px;
+  border: solid gainsboro 2px;
+  border-radius: 10px;
+  padding-left: 3px;
 }
+
+#input:hover {
+  border: solid black 2px;
+    transition: .5s;
+}
+
+#submit{
+  border: solid gainsboro 3px;
+  height: 45px;
+  width: 120px;
+  border-radius: 20px;
+}
+
+#submit:hover {
+  background-color: rgb(63, 184, 236);
+    color: white;
+    transition: .3s;
+}
+
+div.submit {
+  margin-top: 40px;
+  margin-bottom: 70px;
+}
+
 
 button.uk-button-default{
   border: none;

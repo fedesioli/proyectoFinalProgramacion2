@@ -19,19 +19,43 @@
     <%-include("header")%>
     <main>
       <h1>Buscador avanzado</h1>
+     <div class="containerForm">
+
       <form class="buscador-avanzado" action="/home/resultadosBuscadorAvanzado" method="get">
+        <div class="preguntas">
         <label for="">¿Qué género estás buscando?</label>
-        <select class="generos" name="generoincluido">
+      </div>
+
+      <div class="input">
+        <select class="generos" name="generoincluido" id="input">
           <option value="" disabled selected>Generos...</option>
         </select>
+      </div>
+
+      <div class="preguntas">
         <label for="">¿Qué género queres excluir?</label>
-        <select class="generos2" name="generoexcluido">
+      </div>
+
+      <div class="input">
+        <select class="generos2" name="generoexcluido" id="input">
           <option value="" disabled selected>Generos...</option>
         </select>
+      </div>
+
+      <div class="preguntas">
         <label for="">¿Qué año de estreno buscas?</label>
-        <input type="text" name="añoestreno" value="" placeholder="Año de estreno" class="ano">
+      </div>
+
+      <div class="input">
+        <input type="text" name="añoestreno" value="" placeholder="Año de estreno" class="ano" id="input">
+      </div>
+
+      <div class="preguntas">
         <label for="">¿Cómo queres ver los resulltados?</label>
-        <select name="ordenresultados">
+      </div>
+
+      <div class="input">
+        <select name="ordenresultados" id="input">
           <option value="" disabled selected>Orden de resultados</option>
           <option value="vote_average.desc">Por mayor puntaje</option>
           <option value="vote_average.asc">Por menor puntaje</option>
@@ -40,8 +64,14 @@
           <option value="popularity.desc">Por mayor popularidad</option>
           <option value="popularity.asc">Por menor popularidad</option>
         </select>
-        <button type="submit" name="button">Buscar!</button>
+      </div>
+
+        <div class="submit">
+        <button type="submit" name="button" id="submit">Buscar!</button>
+      </div>
       </form>
+
+    </div>
     </main>
     <%-include("footer")%>
   </body>
