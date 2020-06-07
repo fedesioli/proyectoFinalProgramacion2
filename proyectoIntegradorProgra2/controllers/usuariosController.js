@@ -6,16 +6,16 @@ let controladorUsuarios = {
 
     buscarUsuario: function(req,res){
         res.render("BuscadorDeUsuarios")
-    },
+    }, //Abre el formulario de busqueda por GET
     ResultadosBuscadorUsuarios: function(req,res) {
-        let loBuscado = req.query.buscador
+        let loBuscado = req.query.buscador //Agarra lo que se busco en la query
         db.users.findAll({
                 where: {
                   [op.or]: [
                     { username: { [op.like] : "%" + loBuscado + "%" }},
                     { email: { [op.like] : "%" + loBuscado + "%" } }
                   ]
-                } })
+                } }) // Filtra en la base de datos por usuario o email
         .then (function(resultado){
                 res.render("ResultadoDeUsuarios",{resultado:resultado})
             })
@@ -26,7 +26,7 @@ let controladorUsuarios = {
                 {association: 'reviews'}
             ]
         }
-            )
+            ) //Traigo el usuario con su id desde la query y traigo tmb las reviews asociadas a ese id
         .then (function(resultado){
              
             res.render('DetalleUsuario', {resultado:resultado})

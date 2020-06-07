@@ -19,9 +19,10 @@
     <%-include("header")%>
     <main>
       <h1>Los usuarios encontrados son:</h1>
-      <ul>
-      <% for(i = 0; i < resultado.length; i++){ %>
-        <li><a href="/home/detalleUsuario?user=<%=resultado[i].id_user%>"><%= resultado[i].username%></a> - <%= resultado[i].email %></li>
+      <ul>  
+        <!-- For que recorre todos los resultados del findAll -->
+      <% for(i = 0; i < resultado.length; i++){ %> 
+        <li><a href="/home/detalleUsuario?user=<%=resultado[i].id_user%>" style="text-decoration: none; color: black;" ><%= resultado[i].username%></a> - <%= resultado[i].email %></li>
         <%}%>
     </ul>
     
