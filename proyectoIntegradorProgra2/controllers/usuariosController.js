@@ -93,27 +93,37 @@ let controladorUsuarios = {
         res.render("editReviewsForm", {id_review: id_review})
     },
     editReviews: function(req,res){       
-        id = req.body.id_review;
-        db.reviews.update({
-            texto: req.body.texto,
-            puntaje: req.body.puntaje,
-            updated_at: db.sequelize.literal("CURRENT_DATE"),
-        },
-        {
-            where: {id_review: id}
-        })
-        .then(function(){
-        res.redirect("/home/myReviews")
-        })
+        if (req.session.usuarioLogeado) {
+            id = req.body.id_review;
+            db.reviews.update({
+                texto: req.body.texto,
+                puntaje: req.body.puntaje,
+                updated_at: db.sequelize.literal("CURRENT_DATE"),
+            },
+            {
+                where: {id_review: id}
+            })
+            .then(function(){
+            res.redirect("/home/myReviews")
+            })
+        } else {
+            res.redirect("/home/login")
+        }
+       
     },
     deleteReview: function(req,res){
-       let id = req.query.id
+        if (req.session.usuarioLogeado) {
+            let id = req.query.id
        db.reviews.destroy({
            where: {id_review: id}
        })
        .then(function(){
            res.redirect("/home/myReviews")
        })
+        } else {
+            res.redirect("/home/login")
+        }
+       
     },
 
 
