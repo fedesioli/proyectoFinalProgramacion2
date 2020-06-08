@@ -89,11 +89,15 @@ let controladorUsuarios = {
         }
     },
     editReviewsForm: function(req,res){
-        var id_review = req.query.id
-        res.render("editReviewsForm", {id_review: id_review})
+        if (req.session.usuarioLogeado) {
+            var id_review = req.query.id
+            res.render("editReviewsForm", {id_review: id_review})
+        } else {
+            res.redirect("/home/login")
+        }
     },
     editReviews: function(req,res){       
-        if (req.session.usuarioLogeado) {
+    
             id = req.body.id_review;
             db.reviews.update({
                 texto: req.body.texto,
@@ -106,9 +110,8 @@ let controladorUsuarios = {
             .then(function(){
             res.redirect("/home/myReviews")
             })
-        } else {
-            res.redirect("/home/login")
-        }
+      
+          
        
     },
     deleteReview: function(req,res){
